@@ -12,7 +12,7 @@ Observations:
 2. We can divide input a into several sections, 
    The length of each section is k, with last section make up to the a[n-1] (length <= k)
 3. In each day, we can only stop at some point inside each section. 
-   That is, each secion can have one and only one stop
+   That is, each section can have one and only one stop
    At the last day, we stop at a[n-1]
 4. When we stop at a[i], its previous stop must be at or after a[i-k], since we can visit max k points each day.
 5. Using i-k can pass the grader. However, this number can be improved a little bit.
