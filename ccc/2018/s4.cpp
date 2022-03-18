@@ -50,6 +50,19 @@ long long f(int n) {
   hashMap[n] = ans;
   return ans;
 }
+
+long long f1(int n) {
+  if (hashMap.find(n) != hashMap.end()) {
+    return hashMap[n];
+  }
+
+  long long ans = 0;
+  for (int i = 2; i <=n; i++) {
+    ans+=f1(n/i);
+  }
+  hashMap[n] = ans;
+  return ans;
+}
 int main() {
   int n;
   cin >> n;
@@ -57,6 +70,6 @@ int main() {
   hashMap[2] = 1;
   hashMap[3] = 2;
 
-  cout << f(n);
+  cout << f1(n);
   return 0;
 }

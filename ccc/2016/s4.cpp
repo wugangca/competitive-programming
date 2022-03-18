@@ -1,5 +1,5 @@
 /*
-1. dp[i][j] = true/false: v[i]...v[j] can be merged into 1 rice ball
+1. dp[i][j] = true/false: v[i]...v[j] can be merged into 1 rice ball, i <= j
 2. dp[i][i] = true: for single rice ball 
    dp[i][i-1] = true: for two pointer method special case
 3. ans = max (sum(i, j), if dp[i][j] is true)

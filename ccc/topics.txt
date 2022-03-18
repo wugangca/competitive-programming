@@ -1,0 +1,19 @@
+1. STL complexity
+   list: linked list, erase/insert O(1)
+   vector: sequencial erase/insert O(n)
+
+    map, set, unordered_map
+
+
+2. alogorithm library:
+    sort, unique 
+    remove duplicates of vector v:
+    sort(v.begin(), v.end());
+    v.erase(unique(v.begin(), v.end()), v.end());
+
+3. max flow, bipartie matching
+
+
+priority queue
+https://leetcode.com/problems/top-k-frequent-words/
+https://leetcode.com/problems/maximum-average-pass-ratio/

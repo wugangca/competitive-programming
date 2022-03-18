@@ -1,0 +1,48 @@
+2021 J4: counting
+     J5: counting
+
+2020 J4: set
+     J5: queue, BFS
+
+2019:J4: 2D vector operation
+     J5: queue, DFS/BFS
+
+2018: J4: 2D vector operation
+      J5: queue, BFS
+
+2017: J4: 1D vector, check over 12  hours
+      J5: couting array
+
+2016  J4: string parsing
+      J5: sorting
+
+2015  J4: counting array, handle -1
+      J5: DP, recursion, memory
+
+2014  J4: List
+      J5: map
+
+2013 J4: sort
+     J5:6 nested loops, complete search
+
+2012 J4: string operation
+     J5: BFS, queue
+
+2011 J4: 2D grid operations
+     J5: recursion, tree, graph DFS
+
+2010 J4: all possible combinations len 1 2 3...
+     J5: BFS graph traversal
+
+2009 J4: string operation, mod
+     J5: graph, adj, shortest path
+
+2008 J4: stack, postfix, prefix
+     J5: BFS search
+
+
+counting
+https://leetcode.com/problems/first-unique-character-in-a-string/
+
+grid traversal BFS, queue
+infix, postfix, prefix conversion, evaluation 
