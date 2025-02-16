@@ -7,7 +7,11 @@ are -1.
 loop (e.g. RL)
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <queue>
+#include <vector>
+
+
 using namespace std;
 struct Cell {
   int i, j, step;
@@ -25,28 +29,32 @@ void preprocess(int n, int m) {
       } else if (v[i][j] == 'C') {
         ans[i][j] = 0;
         for (int k = j - 1; k > 0; k--) {
-          if (v[i][k] == 'W') break;
+          if (v[i][k] == 'W')
+            break;
           if (v[i][k] == '.' || v[i][k] == 'S') {
             ans[i][k] = 0;
           }
         }
 
         for (int k = j + 1; k < m - 1; k++) {
-          if (v[i][k] == 'W') break;
+          if (v[i][k] == 'W')
+            break;
           if (v[i][k] == '.' || v[i][k] == 'S') {
             ans[i][k] = 0;
           }
         }
 
         for (int k = i - 1; k > 0; k--) {
-          if (v[k][j] == 'W') break;
+          if (v[k][j] == 'W')
+            break;
           if (v[k][j] == '.' || v[k][j] == 'S') {
             ans[k][j] = 0;
           }
         }
 
         for (int k = i + 1; k < n - 1; k++) {
-          if (v[k][j] == 'W') break;
+          if (v[k][j] == 'W')
+            break;
           if (v[k][j] == '.' || v[k][j] == 'S') {
             ans[k][j] = 0;
           }

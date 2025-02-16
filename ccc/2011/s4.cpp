@@ -2,12 +2,16 @@
 greedy algorithm. provide units to the morst restricted types first.
 */
 
-int distribute(int& patient, int& unit) {
+#include <iostream>
+
+using namespace std;
+
+int distribute(int &patient, int &unit) {
   int total = 0;
   if (patient >= unit) {
     // more patients than unit
-    total = unit;     // use all  units
-    patient -= unit;  // remaining patients
+    total = unit;    // use all  units
+    patient -= unit; // remaining patients
     unit = 0;
   } else {
     // more unit than patient
@@ -17,9 +21,6 @@ int distribute(int& patient, int& unit) {
   }
   return total;
 }
-
-#include <bits/stdc++.h>
-using namespace std;
 
 int main() {
   int negativeOUnit, positiveOUnit;
@@ -49,7 +50,6 @@ int main() {
   total += distribute(negativeABUnit, negativeAB);
   total += distribute(negativeABUnit, positiveAB);
 
-
   // distribute positiveBUnit
   total += distribute(positiveBUnit, positiveB);
   total += distribute(positiveBUnit, positiveAB);
@@ -69,7 +69,6 @@ int main() {
   total += distribute(negativeAUnit, positiveA);
   total += distribute(negativeAUnit, negativeAB);
   total += distribute(negativeAUnit, positiveAB);
-
 
   // distribute positiveOUnit
   total += distribute(positiveOUnit, positiveO);

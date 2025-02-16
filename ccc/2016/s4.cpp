@@ -1,18 +1,21 @@
 /*
 1. dp[i][j] = true/false: v[i]...v[j] can be merged into 1 rice ball, i <= j
-2. dp[i][i] = true: for single rice ball 
+2. dp[i][i] = true: for single rice ball
    dp[i][i-1] = true: for two pointer method special case
 3. ans = max (sum(i, j), if dp[i][j] is true)
 4. Use prefix sum arrry to calculate sum(i,j)
 5. for each pair (i, j), use two pointer method calculate dp[i][j]
-6. (k1 = i, k2 = j), find sum1 == sum2, then check dp[i][k1], dp[k1+1][k2-1], dp[k2][j]
-7. dp should be calculated by intervals (bigger interval dp values are based on smaller interval dp values).
-   interval = 0. dp[i][i] = true
-   interval = 1, 2, 3, ..., n-1 -> j = i+1, i+2,..., i+n-1
+6. (k1 = i, k2 = j), find sum1 == sum2, then check dp[i][k1], dp[k1+1][k2-1],
+dp[k2][j]
+7. dp should be calculated by intervals (bigger interval dp values are based on
+smaller interval dp values). interval = 0. dp[i][i] = true interval = 1, 2, 3,
+..., n-1 -> j = i+1, i+2,..., i+n-1
 */
 
+#include <algorithm>
+#include <iostream>
+#include <vector>
 
-#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -24,7 +27,7 @@ int main() {
     cin >> v[i];
     prefixSum[i + 1] = prefixSum[i] + v[i];
   }
-  vector<vector<bool> > dp(n, vector<bool>(n, false));
+  vector<vector<bool>> dp(n, vector<bool>(n, false));
   for (int i = 0; i < n; i++) {
     dp[i][i] = true;
     if (i > 0) {

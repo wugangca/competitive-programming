@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <stack>
+#include <string>
+
+
 using namespace std;
 
 int main() {
@@ -16,7 +20,7 @@ int main() {
         st.push(num);
         continue;
       }
-      
+
       while (!st.empty()) {
         string top = st.top();
         if (top == "+" || top == "-") {
@@ -30,6 +34,5 @@ int main() {
       }
     }
     cout << num << endl;
-
   }
 }

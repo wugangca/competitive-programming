@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int solve(int n, int k, int start, vector<vector<vector<int>>>& dp) {
+int solve(int n, int k, int start, vector<vector<vector<int>>> &dp) {
   if (n < k) {
     return 0;
   }

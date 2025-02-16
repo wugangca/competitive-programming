@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 
 int main() {
@@ -32,21 +33,21 @@ int main() {
       } else {
         B += A;
       }
-    }  else if (i == 4) {
+    } else if (i == 4) {
       cin >> X >> Y;
       if (X == 'A') {
         A *= B;
       } else {
         B *= A;
       }
-    }  else if (i == 5) {
+    } else if (i == 5) {
       cin >> X >> Y;
       if (X == 'A') {
         A -= B;
       } else {
         B -= A;
       }
-    }  else if (i == 6) {
+    } else if (i == 6) {
       cin >> X >> Y;
       if (X == 'A') {
         A /= B;

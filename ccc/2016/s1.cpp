@@ -1,29 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 int main() {
   string s1, s2;
   cin >> s1 >> s2;
-  vector<int> count (26, 0);
-  
-  for (char c:s1) {
-     count[c-'a']++;
+  vector<int> count(26, 0);
+
+  for (char c : s1) {
+    count[c - 'a']++;
   }
   int countStar = 0;
-  for (char c:s2) {
-    if (c== '*') {
+  for (char c : s2) {
+    if (c == '*') {
       countStar++;
     } else {
-       count[c-'a']--;
+      count[c - 'a']--;
     }
   }
   bool isAnagram = true;
-  for (int i = 0; i <26; i++) {
+  for (int i = 0; i < 26; i++) {
     if (count[i] < 0) {
-      isAnagram= false;
+      isAnagram = false;
       break;
     } else if (count[i] > 0) {
-      countStar-=count[i];
+      countStar -= count[i];
       if (countStar < 0) {
         isAnagram = false;
         break;

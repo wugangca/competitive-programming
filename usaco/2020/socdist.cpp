@@ -3,15 +3,6 @@
 using namespace std;
 
 bool f(vector<pair<int, int>> intervals, int n, int d) {
-  int c = 1;
-  int location = intervals[0].first;
-  for (pair<int, int> interval: intervals) {
-     while (location <= interval.second) {
-        c++;
-        
-         
-     }
-  }
   int count = 1;
   int location = intervals[0].first;
   int end = intervals[0].second;
@@ -53,7 +44,7 @@ int main() {
     cin >> intervals[i].first >> intervals[i].second;
   }
 
-   sort(intervals.begin(), intervals.end());
+  sort(intervals.begin(), intervals.end());
 
   int low = 0;
   int high = (intervals[m - 1].second - intervals[0].first);
@@ -62,7 +53,7 @@ int main() {
   while (low < high) {
     int mid = (low + high) / 2;
     if (f(intervals, n, mid)) {
-        ans = mid;
+      ans = mid;
       low = mid + 1;
     } else {
       high = mid;

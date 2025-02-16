@@ -1,10 +1,12 @@
 /*
 1. Each friend has a [left, right] range.
-2. The optimal solution should be on the border points. 
+2. The optimal solution should be on the border points.
   2.1 if the optimal solution is between two ranges: |____|   |____|,
-       if left friend total weights < right friend total weights, we can move left border.
-       similar to the right border
-  2.2 if the optiomal solution is inside a range |______|, that friend moving time is 0, remove the friend from the list, case goes back to 2.1.
+       if left friend total weights < right friend total weights, we can move
+left border. similar to the right border
+ 2.2 if the optiomal solution is inside
+a range |______|, that friend moving time is 0, remove the friend from the list,
+case goes back to 2.1.
 3. We have 2*n points to check
 4. We use prefix sum arrays, leftSum and rightSum, for the points.
 5. leftSum[i] is the total moving time for friends left to points[i]
@@ -12,14 +14,17 @@
 7. Optimal solution is the min(leftSum[i] + rightSum[i])
 8. leftSum[i] = leftSum[i-1] + weights * (points[i] - points[i-1]):
    8.1 leftSum[i-1] is the total time to move to points[i-1]
-   8.2 When we check points[i], all the friends left to points[i] need to move extra distance of (points[i] - points[i-1])
-   We can forward scan points to construct leftSum array in O(n)
+   8.2 When we check points[i], all the friends left to points[i] need to move
+extra distance of (points[i] - points[i-1]) We can forward scan points to
+construct leftSum array in O(n)
 9. rightSum[i] = rightSum[i+1] + weights * (points[i+1] - points[i])
    We can backward scan points to construct rightSum array in O(n)
 10. sorting takes O(nlogn). Therefore, the overall time is O(nlongn)
 */
 
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 struct Friend {
@@ -28,11 +33,11 @@ struct Friend {
   int w;
 };
 
-bool compareLeft(const Friend& f1, const Friend& f2) {
+bool compareLeft(const Friend &f1, const Friend &f2) {
   return f1.left < f2.left;
 }
 
-bool compareRight(const Friend& f1, const Friend& f2) {
+bool compareRight(const Friend &f1, const Friend &f2) {
   return f1.right < f2.right;
 }
 

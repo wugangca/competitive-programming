@@ -18,7 +18,10 @@ In an extreme case, all 7 numbers stack into one byte:
 
 */
 
-#include <bits/stdc++.h>
+#include <unordered_set>
+#include <iostream>
+#include <queue>
+#include <string>
 using namespace std;
 
 struct Node {

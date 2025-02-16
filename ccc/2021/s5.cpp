@@ -19,6 +19,8 @@ lcm(2,3,8)
 
 */
 #include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -28,7 +30,7 @@ struct Query {
 
 int lcm(int p, int q) { return p * q / __gcd(p, q); }
 
-void checkQuery(const vector<Query>& queries, const vector<int>& ans, int n) {
+void checkQuery(const vector<Query> &queries, const vector<int> &ans, int n) {
   for (Query q : queries) {
     int gcd = ans[q.x];
     for (int i = q.x + 1; i <= q.y; i++) {
@@ -79,7 +81,7 @@ int main() {
   vector<Query> queries(m);
 
   // gcd: 1-16
-  vector<vector<int> > diff(17, vector<int>(n + 2, 0));
+  vector<vector<int>> diff(17, vector<int>(n + 2, 0));
 
   for (int i = 0; i < m; i++) {
     int x, y, z;

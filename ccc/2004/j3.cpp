@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -10,8 +13,7 @@ int main() {
     cin >> s;
     adj.push_back(s);
   }
-  
-  
+
   for (int i = 0; i < m; i++) {
     cin >> s;
     noun.push_back(s);
@@ -22,5 +24,4 @@ int main() {
       cout << adj[i] << " as " << noun[j] << endl;
     }
   }
-  
 }

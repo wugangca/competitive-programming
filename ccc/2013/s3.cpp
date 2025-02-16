@@ -1,6 +1,6 @@
 /*
-Since we only have 6 games and each game has only 3 possibilities (win, lose, tie),
-there are at most 3^6 possibilities and we can check all of them.
+Since we only have 6 games and each game has only 3 possibilities (win, lose,
+tie), there are at most 3^6 possibilities and we can check all of them.
 Construct a games vector on the 6 games {1-2, 1-3, 1-4, 2-3, 2-4, 3-4}
 Each element can be 'w', 'l', 't', or ' '
 For finished games, the values are fixed 'w', 'l', or 't'
@@ -11,12 +11,17 @@ If the game is finished, set the value to 1.
 Otherwise set the value to 3.
 
 Use nested loops to go through all possibilities on each game.
-Once we have a fully filled games vector, we can check if the favorite team wins.
+Once we have a fully filled games vector, we can check if the favorite team
+wins.
 */
-#include <bits/stdc++.h>
+
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
-void addScore(vector<int>& scores, char status, int a, int b) {
+void addScore(vector<int> &scores, char status, int a, int b) {
   if (status == 'w') {
     scores[a] += 3;
   } else if (status == 'l') {
@@ -26,7 +31,7 @@ void addScore(vector<int>& scores, char status, int a, int b) {
     scores[b] += 1;
   }
 }
-int checkWin(vector<char>& games, int t) {
+int checkWin(vector<char> &games, int t) {
   vector<int> scores(5, 0);
   addScore(scores, games[0], 1, 2);
   addScore(scores, games[1], 1, 3);

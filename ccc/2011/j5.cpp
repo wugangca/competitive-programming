@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int f(int n, vector<vector<int>>& adj) {
+int f(int n, vector<vector<int>> &adj) {
   int total = 1;
   for (int x : adj[n]) {
     total *= 1 + f(x, adj);

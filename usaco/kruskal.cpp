@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <queue>
 #include <vector>
 using namespace std;
 /*
@@ -15,32 +14,32 @@ using namespace std;
 */
 struct Edge {
   int u, v, w;
-  Edge(int u1, int v1, int w1) {
-    u = u1;
-    v = v1;
-    w = w1;
-  }
-  friend bool operator<(const Edge& l, const Edge& r) { return l.w < r.w; }
+  friend bool operator<(const Edge &l, const Edge &r) { return l.w < r.w; }
 };
 
-int find(const vector<int>& parent, int x) {
+int find(vector<int> &parent, int x) {
   if (parent[x] == x)
     return x;
-  else
-    return find(parent, parent[x]);
+  else {
+    int p = find(parent, parent[x]);
+    parent[x] = p;
+    return p;
+  }
 }
 
-bool uninion(vector<int>& parent, int x, int y) {
+bool unionRank(vector<int> &parent, int x, int y, vector<int> &rank) {
   int px = find(parent, x);
   int py = find(parent, y);
-
   if (px == py) {
     return false;
   } else {
-    if (rand() % 2 == 0) {
+    if (rank[x] < rank[y]) {
       parent[px] = py;
     } else {
       parent[py] = px;
+      if (rank[x] == rank[y]) {
+        rank[x] += 1;
+      }
     }
     return true;
   }
@@ -55,25 +54,26 @@ int main() {
   for (int i = 0; i < m; i++) {
     int u, v, w;
     cin >> u >> v >> w;
-    edges.push_back(Edge(u, v, w));
+    edges.push_back({u, v, w});
   }
 
   sort(edges.begin(), edges.end());
 
   vector<int> parent(n);
+  vector<int> rank(n, 1);
   for (int i = 0; i < n; i++) {
     parent[i] = i;
   }
-  
+
   int total = 0;
   for (auto edge : edges) {
-     if (uninion (parent, edge.u, edge.v)) {
-        cout << edge.u << ", " << edge.v << ", " << edge.w << endl;
-        total++;
-        if (total == n-1) {
-          break;
-        }
-     }
+    if (unionRank(parent, edge.u, edge.v, rank)) {
+      cout << edge.u << ", " << edge.v << ", " << edge.w << endl;
+      total++;
+      if (total == n - 1) {
+        break;
+      }
+    }
   }
 
   return 0;

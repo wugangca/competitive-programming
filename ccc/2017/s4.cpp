@@ -12,32 +12,37 @@ we need to switch it in.
 7. We can apply d on only one edge. Therefore, we can reduce the day at most 1.
 8. For the generated MST, We can apply the enhancer (d) to the edge with the
 maximum weight. This is the our optimal solution.
-9. If all MST edges are in the original plan, no way to reduce more. 
-   If you want to apply d to an outside edge and switch in, we can do the same to apply d
-   on an MST edge (with smaller weight) 
+9. If all MST edges are in the original plan, no way to reduce more.
+   If you want to apply d to an outside edge and switch in, we can do the same
+to apply d on an MST edge (with smaller weight)
 10. The only way to reduce 1 day is to:
-    Apply d on an edge which is in the original plan (index < n-1) and is not in the MST
-    Replace an edge in the MST but not in the original plan (index >= n-1)
-11. The reason we didn't choose that edge (in the original plan) in MST is either
+    Apply d on an edge which is in the original plan (index < n-1) and is not in
+the MST Replace an edge in the MST but not in the original plan (index >= n-1)
+11. The reason we didn't choose that edge (in the original plan) in MST is
+either
     1. the edge introduce a cycle
     2. the edge the weight is too big (> maxWeight)
-    Since the we cannot switch an edge in for a cycle, the newly chosen edge must be >maxWeight
+    Since the we cannot switch an edge in for a cycle, the newly chosen edge
+must be >maxWeight
 
-12. Since the newly chose edge's weight > maxWeight, 
-    its weight must be <= d, i.e. the enhancer will zero the new edge. 
+12. Since the newly chose edge's weight > maxWeight,
+    its weight must be <= d, i.e. the enhancer will zero the new edge.
     if >d, we will increse the total weight if we switch it in. Originally, we
-    reduce the MST with min(maxWeigt, d) Since the switched-in edge's weight is >maxWeight, 
-    we must make sure we still reduce the same amount. Therefore, the new weight must be <=d.
+    reduce the MST with min(maxWeigt, d) Since the switched-in edge's weight is
+>maxWeight, we must make sure we still reduce the same amount. Therefore, the
+new weight must be <=d.
 13. The switched-in edge must be able form a spanning tree. i.e. Kruskal
 algorithm also applies.
 */
 
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 struct Edge {
   int u, v, w, index;
-  friend bool operator<(const Edge& l, const Edge& r) {
+  friend bool operator<(const Edge &l, const Edge &r) {
     if (l.w == r.w) {
       return l.index < r.index;
     } else {
@@ -46,7 +51,7 @@ struct Edge {
   }
 };
 
-int find(vector<int>& parent, int x) {
+int find(vector<int> &parent, int x) {
   if (parent[x] == x) {
     return x;
   }
@@ -56,7 +61,7 @@ int find(vector<int>& parent, int x) {
   return p;
 }
 
-bool uninion(vector<int>& parent, vector<int>& rank, int x, int y) {
+bool uninion(vector<int> &parent, vector<int> &rank, int x, int y) {
   int px = find(parent, x);
   int py = find(parent, y);
 

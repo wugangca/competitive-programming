@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -25,9 +28,9 @@ int main() {
   int total = 0;
 
   for (int i = 0; i < n; i++) {
-     total += max(d[i], p[i]);
+    total += max(d[i], p[i]);
   }
 
-  cout<< total;
+  cout << total;
   return 0;
 }

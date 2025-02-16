@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -24,19 +28,21 @@ int main() {
     group[name1] = i;
     group[name2] = i;
     group[name3] = i;
-  }  
+  }
 
   int ans = 0;
   for (int i = 0; i < x; i++) {
     string name1 = same[i][0];
     string name2 = same[i][1];
-    if (group[name1] != group[name2]) ans++;
+    if (group[name1] != group[name2])
+      ans++;
   }
 
   for (int i = 0; i < y; i++) {
     string name1 = diff[i][0];
     string name2 = diff[i][1];
-    if (group[name1] == group[name2]) ans++;
+    if (group[name1] == group[name2])
+      ans++;
   }
 
   cout << ans;

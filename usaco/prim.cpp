@@ -14,12 +14,12 @@ using namespace std;
 */
 struct Edge {
   int u, v, w;
-  Edge(int u1, int v1, int w1) {
-    u = u1;
-    v = v1;
-    w = w1;
-  }
   friend bool operator<(const Edge& l, const Edge& r) { return l.w > r.w; }
+};
+
+struct Node {
+  int num, w;
+  friend bool operator<(const Node& n1, const Node& n2) { return n1.w > n2.w; }
 };
 
 int main() {
@@ -30,8 +30,8 @@ int main() {
   for (int i = 0; i < m; i++) {
     int u, v, w;
     cin >> u >> v >> w;
-    adj[u].push_back(Edge(u, v, w));
-    adj[v].push_back(Edge(v, u, w));
+    adj[u].push_back({u, v, w});
+    adj[v].push_back({v, u, w});
   }
 
   priority_queue<Edge> q;
@@ -40,20 +40,15 @@ int main() {
   int cur = 0;
   while (total < n - 1) {
     chosen[cur] = true;
-    for (auto e : adj[cur]) {
-      if (!chosen[e.v]) {
-        q.push(e);
+    for (auto edge : adj[cur]) {
+      if (!chosen[edge.v]) {
+        q.push(edge);
       }
     }
-
-    Edge e = q.top();
-    while (chosen[e.v]) {
+    while (!q.empty() && chosen[q.top().v]) {
       q.pop();
-      if (q.empty()) {
-        break;
-      }
-      e = q.top();
     }
+    Edge e = q.top();
     cout << e.u << ", " << e.v << ", " << e.w << endl;
     cur = e.v;
     total++;

@@ -1,20 +1,29 @@
-/* 
-1. Use a counting array to count characters in the needle string 
-2. Use a sliding window (size of needle string length m) to go through the haystack.
+/*
+1. Use a counting array to count characters in the needle string
+2. Use a sliding window (size of needle string length m) to go through the
+haystack.
 3. Compare the two counting arrays to find a candidate string
-4. The candidate string may already visited. Use a hash set to store previous checked string
+4. The candidate string may already visited. Use a hash set to store previous
+checked string
 5. The value stored in the hash set is the hash value of the string.
 6. We can use a rolling hash to calculate the hash value.
 7. In order to get full mark, you have to try different numbers.
-8. One rolling hash may not enough to avoid hash collision. Try to use 2 or more with different p, q.
+8. One rolling hash may not enough to avoid hash collision. Try to use 2 or more
+with different p, q.
 */
 
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <unordered_set>
+#include <vector>
+
+
 using namespace std;
 #define TOTAL_CHARACTERS 26
 #define HASH_SIZE 1
 
-bool match(const vector<int>& countN, const vector<int>& countH) {
+bool match(const vector<int> &countN, const vector<int> &countH) {
   for (int i = 0; i < TOTAL_CHARACTERS; i++) {
     if (countN[i] != countH[i]) {
       return false;
@@ -23,7 +32,8 @@ bool match(const vector<int>& countN, const vector<int>& countH) {
   return true;
 }
 
-long long merge(const vector<long long>& hashes, const vector<long long>& factors) {
+long long merge(const vector<long long> &hashes,
+                const vector<long long> &factors) {
   long long hash = 0;
   for (int i = 0; i < HASH_SIZE; i++) {
     hash += factors[i] * hashes[i];
@@ -56,7 +66,7 @@ int main() {
       bases[j] = (bases[j] * p[j]) % q[j];
     }
   }
- 
+
   for (int i = 0; i < m; i++) {
     int index = haystack[i] - 'a';
     countH[index]++;

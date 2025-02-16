@@ -3,7 +3,10 @@ Use two stacks to simulate the process
 In each iteration, we either pop from the top or branch if the number is good
 or pop from top and push to the branch if the number is not good
 */
-#include <bits/stdc++.h>
+
+#include <iostream>
+#include <stack>
+
 using namespace std;
 
 int main() {

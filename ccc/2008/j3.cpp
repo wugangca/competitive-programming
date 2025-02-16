@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+
 using namespace std;
 
 int main() {
@@ -26,12 +28,12 @@ int main() {
     } else if (ch == '.') {
       x = 4;
       y = 4;
-    } 
-    total += abs(x-curX) + abs(y-curY);
+    }
+    total += abs(x - curX) + abs(y - curY);
     curX = x;
     curY = y;
   }
 
-  total+=abs(4-curX) + abs(5-curY);
+  total += abs(4 - curX) + abs(5 - curY);
   cout << total;
 }

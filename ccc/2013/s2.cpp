@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -17,7 +19,7 @@ int main() {
 
   while (j < n && j < 4) {
     total += v[j];
-    if (total > w ) {
+    if (total > w) {
       cout << j;
       return 0;
     }
@@ -35,5 +37,4 @@ int main() {
     j++;
   }
   cout << n;
-
 }

@@ -54,8 +54,8 @@ bool union2(vector<int>& parent, int x, int y, vector<int>& rank) {
 }
 
 int main() {
-  freopen("fencedin.in", "r", stdin);
-  freopen("fencedin.out", "w", stdout);
+  // freopen("fencedin.in", "r", stdin);
+  // freopen("fencedin.out", "w", stdout);
   int A, B, n, m;
   cin >> A >> B >> n >> m;
 

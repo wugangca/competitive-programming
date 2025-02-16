@@ -28,7 +28,9 @@ We can store f(2) during the calculation of f(7).
 Then later when we calculate f(2) in the f(15)'s loop (k=6,7),  we can use
 previously computed f(2) directly.
 */
-#include <bits/stdc++.h>
+
+#include <iostream>
+#include <unordered_map>
 using namespace std;
 
 unordered_map<int, long long> hashMap;
@@ -57,8 +59,8 @@ long long f1(int n) {
   }
 
   long long ans = 0;
-  for (int i = 2; i <=n; i++) {
-    ans+=f1(n/i);
+  for (int i = 2; i <= n; i++) {
+    ans += f1(n / i);
   }
   hashMap[n] = ans;
   return ans;

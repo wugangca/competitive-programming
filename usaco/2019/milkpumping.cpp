@@ -70,6 +70,33 @@ int dijkstra(const vector<vector<Edge>>& adj, int n, int minFlow) {
 
   return dist[n];
 }
+
+int ucs(const vector<vector<Edge>>& adj, int n, int minFlow) {
+  priority_queue<Node> q;
+  q.push(Node(1, 0));
+
+  vector<bool> visited(n + 1, false);
+
+  while (!q.empty()) {
+    Node node = q.top();
+    int num = node.num;
+    if (num == n) {
+      return node.distance;
+    }
+    visited[num] = true;
+    q.pop();
+    for (Edge edge : adj[num]) {
+      int u = edge.u;
+      int v = edge.v;
+      if (visited[v]) continue;
+      if (edge.f < minFlow) continue;
+      q.push(Node(v, node.distance + edge.w));
+    }
+  }
+
+  return INT_MAX;
+}
+
 int main() {
   freopen("pump.in", "r", stdin);
   freopen("pump.out", "w", stdout);
@@ -86,7 +113,7 @@ int main() {
 
   double result = 0;
   for (int i = 1; i < 1000; i++) {
-    int c = dijkstra(adj, n, i);
+    int c = ucs(adj, n, i);
     if (c == INT_MAX) {
       continue;
     }

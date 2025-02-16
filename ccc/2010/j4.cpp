@@ -1,7 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-bool check(vector<int>& diff, int end) {
+bool check(vector<int> &diff, int end) {
   int len = end + 1;
   for (size_t i = end + 1; i < diff.size(); i++) {
     int j = i % len;
@@ -17,7 +19,8 @@ int main() {
   while (true) {
     int n;
     cin >> n;
-    if (n == 0) break;
+    if (n == 0)
+      break;
 
     vector<int> diff(n - 1);
     int pre;

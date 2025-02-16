@@ -4,10 +4,12 @@ DFS/BFS on the two graphs, starting from p
 if we can find q during the traversal, we can know p is taller/shorter than q
 otherwise, we output unknown.
 */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-bool dfs(vector<vector<int>>& adj, int u, vector<bool>& visited, int q) {
+bool dfs(vector<vector<int>> &adj, int u, vector<bool> &visited, int q) {
   if (u == q) {
     return true;
   }

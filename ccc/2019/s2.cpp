@@ -2,13 +2,20 @@
 1. Generate all prime numbers on the input data range
 2. 2-sum problem on a sorted array
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <vector>
+
+
 using namespace std;
 
-bool isPrime(int n, const vector<int>& primes) {
+bool isPrime(int n, const vector<int> &primes) {
   for (size_t i = 0; i < primes.size(); i++) {
-    if (n % primes[i] == 0) return false;
-    if (primes[i] > sqrt(n)) return true;
+    if (n % primes[i] == 0)
+      return false;
+    if (primes[i] > sqrt(n))
+      return true;
   }
   return true;
 }
@@ -24,7 +31,7 @@ vector<int> getPrimeNumbers(int maxNum) {
   return primes;
 }
 
-void findPrimes(int n, const vector<int>& primes, int& a, int& b) {
+void findPrimes(int n, const vector<int> &primes, int &a, int &b) {
   int start = 0;
   int end = primes.size() - 1;
 

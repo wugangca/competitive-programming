@@ -51,7 +51,10 @@ fill any numbers.
 
 */
 
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 #define X 1000000001
@@ -135,12 +138,14 @@ void solveTwo() {
   }
   for (int i = 0; i < 3; i++) {
     int count = (v[i][0] == X) + (v[i][1] == X) + (v[i][2] == X);
-    if (count != 2) return;
+    if (count != 2)
+      return;
   }
 
   for (int j = 0; j < 3; j++) {
     int count = (v[0][j] == X) + (v[1][j] == X) + (v[2][j] == X);
-    if (count != 2) return;
+    if (count != 2)
+      return;
   }
 
   if (v[1][0] != X) {

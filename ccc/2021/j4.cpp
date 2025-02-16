@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -77,6 +78,8 @@ int main() {
     totalSinM = 0;
   }
 
-  ans += (totalMinL + totalSinL + totalLinM + totalSinM + totalLinS + totalMinS)/3*2;
+  ans +=
+      (totalMinL + totalSinL + totalLinM + totalSinM + totalLinS + totalMinS) /
+      3 * 2;
   cout << ans;
 }

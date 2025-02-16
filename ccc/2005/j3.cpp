@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -12,7 +15,7 @@ int main() {
     list.push_back(s);
   }
 
-  for (int i = list.size() - 1; i >= 1; i-=2) {
+  for (int i = list.size() - 1; i >= 1; i -= 2) {
     if (list[i] == "R") {
       cout << "Turn LEFT onto " << list[i - 1] << " street." << endl;
     } else {
@@ -20,9 +23,9 @@ int main() {
     }
   }
 
-   if (list[0] == "R") {
-      cout << "Turn LEFT into your HOME."<< endl;
-    } else {
-      cout << "Turn RIGHT into your HOME."<< endl;
-    }
+  if (list[0] == "R") {
+    cout << "Turn LEFT into your HOME." << endl;
+  } else {
+    cout << "Turn RIGHT into your HOME." << endl;
+  }
 }

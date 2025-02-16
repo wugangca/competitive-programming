@@ -4,7 +4,8 @@
 3. The cell's color is decided by its counting on row and column
 */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {

@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+
 using namespace std;
 
 int main() {
@@ -11,7 +15,7 @@ int main() {
     prefix[i] = prefix[i - 1] + on;
   }
 
-   vector<vector<int>> dp(n + 1, vector<int>(n + 1, INT_MAX));
+  vector<vector<int>> dp(n + 1, vector<int>(n + 1, INT_MAX));
   // for (int i = 0; i <= n; i++) {
   //   dp[i][i] = 0;
   // }

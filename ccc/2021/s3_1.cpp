@@ -13,7 +13,9 @@ The bottom is the range [left, right]
 the bottom point
 5. the overall time is O(nlog(PointsRange))
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 struct Friend {
@@ -22,7 +24,7 @@ struct Friend {
   int w;
 };
 
-long long calCost(vector<Friend>& friends, int point) {
+long long calCost(vector<Friend> &friends, int point) {
   long long cost = 0;
   for (Friend f : friends) {
     if (f.left > point) {

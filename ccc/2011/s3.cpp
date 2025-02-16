@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+
 using namespace std;
 
 bool solve(int m, int x, int y) {

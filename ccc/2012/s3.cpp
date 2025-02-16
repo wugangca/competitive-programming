@@ -2,10 +2,13 @@
 1. use a counting array to count the frequencies
 2. Go through each possible rating (1 ..... 1000)
 3. Find the bigest 2 frequencies
-4. For each of the biggest 2 freq, find the corresponding largest and smallest ratings
+4. For each of the biggest 2 freq, find the corresponding largest and smallest
+ratings
 */
 
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
@@ -29,15 +32,16 @@ int main() {
   }
 
   for (int r = 1; r <= 1000; r++) {
-    if (f[r] == 0) continue;
+    if (f[r] == 0)
+      continue;
     if (f[r] > maxFrequency) {
       secondMaxFrequency = maxFrequency;
       secondMaxFrequencyReading1 = maxFrequencyReading1;
       secondMaxFrequencyReading2 = maxFrequencyReading2;
 
-      maxFrequency = f[r];  max1
-      maxFrequencyReading1 = r; i1_max
-      maxFrequencyReading2 = 0;  i1_min
+      maxFrequency = f[r];
+      maxFrequencyReading1 = r;
+      maxFrequencyReading2 = 0;
 
     } else if (f[r] == maxFrequency) {
       if (r > maxFrequencyReading1) {

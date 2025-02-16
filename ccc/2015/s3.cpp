@@ -1,17 +1,20 @@
 /*
 A greedy algorithm is good enough to solve the problem.
 For each plane, find the highest gate number that is empty to park.
-A naive alogorithm takes O(P*G) time. 
+A naive alogorithm takes O(P*G) time.
 We can use set to store empty gates (back-end is a balanced BST).
-Use lower_bound function to find the highest empty gate number. 
+Use lower_bound function to find the highest empty gate number.
 
-Note lower_bound function returns the current number (if exists) or the next number (if not exist).
-What we want is the current number or the previous number.
-Therefore, we store the negative numbers in the set.
-All set operations takes O(logG) time. Therefore, the overall time is O(P*logG)
+Note lower_bound function returns the current number (if exists) or the next
+number (if not exist). What we want is the current number or the previous
+number. Therefore, we store the negative numbers in the set. All set operations
+takes O(logG) time. Therefore, the overall time is O(P*logG)
 
 */
-#include <bits/stdc++.h>
+
+#include <iostream>
+#include <set>
+
 using namespace std;
 
 int main() {

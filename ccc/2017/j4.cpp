@@ -1,7 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-bool check(vector<int>& time) {
+bool check(vector<int> &time) {
   if (time[0] == 0) {
     return (time[1] - time[2] == time[2] - time[3]);
   } else {

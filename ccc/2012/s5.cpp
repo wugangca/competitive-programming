@@ -1,7 +1,9 @@
 
 /*classic grid DP
-*/
-#include <bits/stdc++.h>
+ */
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {
@@ -24,7 +26,7 @@ int main() {
       if (grid[i][j] < 0) {
         grid[i][j] = 0;
       } else {
-        grid[i][j] = grid[i-1][j] + grid[i][j - 1];
+        grid[i][j] = grid[i - 1][j] + grid[i][j - 1];
       }
     }
   }

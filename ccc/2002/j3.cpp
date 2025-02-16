@@ -1,10 +1,12 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+
 using namespace std;
 
 int main() {
   int pink, green, red, orange, total;
   cin >> pink >> green >> red >> orange >> total;
-  INT_MAX
+
   int count = 0;
   int minTicket = total;
   for (int i = 0; i <= total; i++) {

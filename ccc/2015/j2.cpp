@@ -1,17 +1,18 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int countSubstring(const string& s, const string& sub) {
- int count = 0;
+int countSubstring(const string &s, const string &sub) {
+  int count = 0;
 
- size_t found = s.find(sub);
+  size_t found = s.find(sub);
 
- while (found != string::npos) {
-   count ++;
-   found = s.find(sub, found + sub.length());
-
- }
- return count;
+  while (found != string::npos) {
+    count++;
+    found = s.find(sub, found + sub.length());
+  }
+  return count;
 }
 
 int main() {
@@ -22,15 +23,13 @@ int main() {
 
   if (happyCount == 0 && sadCount == 0) {
     cout << "none";
-  } else if (happyCount > sadCount ) {
+  } else if (happyCount > sadCount) {
     cout << "happy";
-  } else if (happyCount < sadCount ) {
+  } else if (happyCount < sadCount) {
     cout << "sad";
   } else {
-    cout <<"unsure" ;
+    cout << "unsure";
   }
 
   return 0;
 }
-
-

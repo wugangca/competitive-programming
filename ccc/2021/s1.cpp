@@ -1,7 +1,10 @@
 /* straightforward way to simulate the process.
 Calcualte the areas of rectagle and triangle on each fence.
 */
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
 int main() {

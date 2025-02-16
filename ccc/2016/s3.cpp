@@ -46,11 +46,17 @@ Pho:
    answer = 2 ("total pho reachable nodes" - 1) - diameter
 
 */
-#include <bits/stdc++.h>
+
+#include <iostream>
+#include <numeric>
+#include <queue>
+#include <vector>
+
+
 using namespace std;
 
-bool dfsTrim(int u, vector<vector<int>>& adj, vector<bool>& phoReachable,
-             vector<bool>& visited) {
+bool dfsTrim(int u, vector<vector<int>> &adj, vector<bool> &phoReachable,
+             vector<bool> &visited) {
   bool pho = phoReachable[u];
   visited[u] = true;
   for (int v : adj[u]) {
@@ -63,8 +69,8 @@ bool dfsTrim(int u, vector<vector<int>>& adj, vector<bool>& phoReachable,
   return pho;
 }
 
-pair<int, int> bfs(int u, int n, vector<vector<int>>& adj,
-                   vector<bool>& phoReachable) {
+pair<int, int> bfs(int u, int n, vector<vector<int>> &adj,
+                   vector<bool> &phoReachable) {
   vector<bool> visited(n, false);
   queue<pair<int, int>> q;
   q.push({u, 0});
@@ -84,8 +90,8 @@ pair<int, int> bfs(int u, int n, vector<vector<int>>& adj,
   return last;
 }
 
-int diameter(int u, int n, vector<vector<int>>& adj,
-             vector<bool>& phoReachable) {
+int diameter(int u, int n, vector<vector<int>> &adj,
+             vector<bool> &phoReachable) {
   pair<int, int> last = bfs(u, n, adj, phoReachable);
   last = bfs(last.first, n, adj, phoReachable);
   return last.second;
